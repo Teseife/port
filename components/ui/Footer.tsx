@@ -14,10 +14,10 @@ export function Footer() {
           <div className="flex flex-col md:flex-row items-center gap-4">
             <div className="flex space-x-4">
               <a href="https://github.com/Teseife" target="_blank" rel="noopener noreferrer">
-                <Image src="/icons/github.svg" alt="GitHub" width={20} height={20} />
+                <Image src="./icons/github.svg" alt="GitHub" width={20} height={20} />
               </a>
               <a href="https://linkedin.com/in/teseife" target="_blank" rel="noopener noreferrer">
-                <Image src="/icons/linkedin.svg" alt="LinkedIn" width={20} height={20} />
+                <Image src="./icons/linkedin.svg" alt="LinkedIn" width={20} height={20} />
               </a>
             </div>
             <div className="flex space-x-2">

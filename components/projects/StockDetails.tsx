@@ -15,7 +15,7 @@ export function StockDetails() {
                     1. Video Demo
                 </h3>
                 <video
-                    src="/videos/stock-predictor/stock-preview.mp4"
+                    src="./videos/stock-predictor/stock-preview.mp4"
                     controls
                     poster="/images/stock-predictor-card-images/stock-thumbnail.png"
                     className="mt-2 w-full rounded-md shadow-lg"
@@ -108,7 +108,7 @@ export function StockDetails() {
                             className="inline-flex items-center space-x-2"
                         >
                             <Image
-                                src="/icons/pdf-icon.svg"
+                                src="./icons/pdf-icon.svg"
                                 alt="PDF icon"
                                 width={20}
                                 height={20}

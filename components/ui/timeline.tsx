@@ -46,7 +46,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
                     </div>
                     <div className="relative h-20 w-40 md:h-35 md:w-35 rounded-full overflow-hidden ring-2 ring-neutral-200 dark:ring-neutral-700 ml-10">
                         <Image
-                            src="/images/about-images/profile.png"
+                            src="./images/about-images/profile.png"
                             alt="Profile Picture"
                             fill
                             style={{
