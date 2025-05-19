@@ -36,7 +36,7 @@ export default function TimelineDemo() {
                 <div>
                     <p className="mb-8 text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
                         When I am not working on school or personal projects I usually go to the gym or play pickle ball ( Not that good yet! LOL).
-                        I also love to bake and I'm  also a passionate car enthusiast! I take some amateur photos of random events around me from time-to-time as well. You can check out my small gallery
+                        I also love to bake and I&apos;m  also a passionate car enthusiast! I take some amateur photos of random events around me from time-to-time as well. You can check out my small gallery
                         <Button asChild variant="ghost" size="sm">
                         <a href= "/Gallery"
                            className=" text-blue-400"

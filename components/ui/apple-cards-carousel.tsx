@@ -1,4 +1,3 @@
-// components/ui/apple-cards-carousel.tsx
 "use client";
 
 import React, {
@@ -16,7 +15,7 @@ import {
 } from "@tabler/icons-react";
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "motion/react";
-import Image, { ImageProps } from "next/image";
+import { ImageProps } from "next/image";
 import { useOutsideClick } from "@/hooks/use-outside-click";
 
 interface CarouselProps {
@@ -253,15 +252,12 @@ export const BlurImage = ({
                               className,
                               alt,
                           }: Omit<ImageProps, "fill" | "blurDataURL">) => {
-    const [isLoading, setLoading] = useState(true);
     return (
         <img
             className={cn(
                 "h-full w-full transition duration-300",
-
                 className
             )}
-            onLoad={() => setLoading(false)}
             src={src as string}
             width={width}
             height={height}

@@ -27,7 +27,8 @@ interface NavItemsProps {
         link: string;
     }[];
     className?: string;
-    onItemClick?: () => void;
+    /** Accepts the clicked link string */
+    onItemClick?: (link: string) => void;
 }
 
 interface MobileNavProps {
@@ -45,7 +46,6 @@ interface MobileNavMenuProps {
     children: React.ReactNode;
     className?: string;
     isOpen: boolean;
-    onClose: () => void;
 }
 
 export const Navbar = ({ children, className }: NavbarProps) => {
@@ -64,7 +64,10 @@ export const Navbar = ({ children, className }: NavbarProps) => {
         >
             {React.Children.map(children, (child) =>
                 React.isValidElement(child)
-                    ? React.cloneElement(child as React.ReactElement<{ visible?: boolean }>, { visible })
+                    ? React.cloneElement(
+                        child as React.ReactElement<{ visible?: boolean }>,
+                        { visible }
+                    )
                     : child
             )}
         </motion.div>
@@ -106,11 +109,15 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
         >
             {items.map((item, idx) => (
                 <a
-                    onMouseEnter={() => setHovered(idx)}
-                    onClick={onItemClick}
-                    className="relative px-4 py-2 text-neutral-600 dark:text-neutral-300"
-                    key={`link-${idx}`}
+                    key={`nav-item-${idx}`}
                     href={item.link}
+                    onMouseEnter={() => setHovered(idx)}
+                    onClick={(e) => {
+                        e.preventDefault();
+                        setHovered(idx);
+                        onItemClick?.(item.link);
+                    }}
+                    className="relative px-4 py-2 text-neutral-600 dark:text-neutral-300"
                 >
                     {hovered === idx && (
                         <motion.div
@@ -155,7 +162,7 @@ export const MobileNavHeader = ({ children, className }: MobileNavHeaderProps) =
     </div>
 );
 
-export const MobileNavMenu = ({ children, className, isOpen, onClose }: MobileNavMenuProps) => (
+export const MobileNavMenu = ({ children, className, isOpen }: MobileNavMenuProps) => (
     <AnimatePresence>
         {isOpen && (
             <motion.div
@@ -173,8 +180,12 @@ export const MobileNavMenu = ({ children, className, isOpen, onClose }: MobileNa
     </AnimatePresence>
 );
 
-export const MobileNavToggle = ({ isOpen, onClick }: { isOpen: boolean; onClick: () => void }) =>
-    isOpen ? <IconX className="text-black dark:text-white" onClick={onClick} /> : <IconMenu2 className="text-black dark:text-white" onClick={onClick} />;
+export const MobileNavToggle = ({ isOpen, onClickAction }: { isOpen: boolean; onClickAction: () => void }) =>
+    isOpen ? (
+        <IconX className="text-black dark:text-white" onClick={onClickAction} />
+    ) : (
+        <IconMenu2 className="text-black dark:text-white" onClick={onClickAction} />
+    );
 
 export const NavbarLogo = () => (
     <a href="#" className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal text-black">
@@ -182,36 +193,4 @@ export const NavbarLogo = () => (
     </a>
 );
 
-
-
-export const NavbarButton = ({
-                                 href,
-                                 as: Tag = "a",
-                                 children,
-                                 className,
-                                 variant = "primary",
-                                 ...props
-                             }: {
-    href?: string;
-    as?: React.ElementType;
-    children: React.ReactNode;
-    className?: string;
-    variant?: "primary" | "secondary" | "dark" | "gradient";
-} & (React.ComponentPropsWithoutRef<"a"> | React.ComponentPropsWithoutRef<"button">)) => {
-    const baseStyles =
-        "px-4 py-2 rounded-md bg-white text-black text-sm font-bold relative cursor-pointer transition duration-200 inline-block text-center";
-    const variantStyles = {
-        primary:
-            "shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]",
-        secondary: "bg-transparent shadow-none dark:text-white",
-        dark:
-            "bg-black text-white shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]",
-        gradient: "bg-gradient-to-b from-blue-500 to-blue-700 text-white shadow-xs",
-    };
-
-    return (
-        <Tag href={href} className={cn(baseStyles, variantStyles[variant], className)} {...props}>
-            {children}
-        </Tag>
-    );
-};
+// Removed unused NavbarButton component entirely

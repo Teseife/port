@@ -1,5 +1,5 @@
 "use client"
-import { useScroll, useTransform, motion } from "motion/react"
+// import { useScroll } from "motion/react"
 import type React from "react"
 import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
@@ -21,13 +21,10 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
         }
     }, [ref])
 
-    const { scrollYProgress } = useScroll({
+    /*const { scrollYProgress } = useScroll({
         target: containerRef,
         offset: ["start 10%", "end 50%"],
-    })
-
-    const heightTransform = useTransform(scrollYProgress, [0, 1], [0, height])
-    const opacityTransform = useTransform(scrollYProgress, [0, 0.1], [0, 1])
+    })*/
 
     return (
         <div className="w-full bg-white dark:bg-neutral-950 font-sans md:px-10" ref={containerRef}>
@@ -40,9 +37,8 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
                             Changelog from my journey
                         </h2>
                         <p className="text-neutral-700 dark:text-neutral-300 text-sm md:text-base max-w-sm mr-4">
-                            Hi, I'm Thomas Seife. I was born and raised in Ethiopia, where I spent the first 14 years of my life before moving to the U.S. for school. Since then, I've been actively involved in numerous academic and personal projects. My fascination with technology began the moment I encountered a laptop in the 3rd grade, sparking a lifelong passion for understanding how things work and leading me to pursue a career in computer science.
+                            Hi, I&apos;m Thomas Seife. I was born and raised in Ethiopia, where I spent the first 14 years of my life before moving to the U.S. for school. Since then, I&apos;ve been actively involved in numerous academic and personal projects. My fascination with technology began the moment I encountered a laptop in the 3rd grade, sparking a lifelong passion for understanding how things work and leading me to pursue a career in computer science.
                         </p>
-
                     </div>
                     <div className="relative h-20 w-40 md:h-35 md:w-35 rounded-full overflow-hidden ring-2 ring-neutral-200 dark:ring-neutral-700 ml-10">
                         <Image
@@ -51,16 +47,12 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
                             fill
                             style={{
                                 objectFit: "cover",
-                                // tweak these percentages to focus on the exact part of the image:
                                 objectPosition: "40% 110%",
                                 transform: "scale(1.3)",
                             }}
                             className="transition-transform duration-500"
                         />
                     </div>
-
-
-
                 </div>
             </div>
 
@@ -88,13 +80,15 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
                     style={{ height: height + "px" }}
                     className="absolute md:left-8 left-8 top-0 overflow-hidden w-[2px] bg-gradient-to-b from-transparent via-neutral-200 dark:via-neutral-700 to-transparent"
                 >
-                    {/*<motion.div*/}
-                    {/*    style={{*/}
-                    {/*        height: heightTransform,*/}
-                    {/*        opacity: opacityTransform,*/}
-                    {/*    }}*/}
-                    {/*    className="absolute inset-x-0 top-0 w-[2px] bg-gradient-to-t from-yellow-300 dark:from-red-700 via-blue-500 dark:via-purple-500/50 to-transparent"*/}
-                    {/*/>*/}
+                    {/* Uncomment if you want to animate the timeline line in the future:
+                    <motion.div
+                        style={{
+                            height: heightTransform,
+                            opacity: opacityTransform,
+                        }}
+                        className="absolute inset-x-0 top-0 w-[2px] bg-gradient-to-t from-yellow-300 dark:from-red-700 via-blue-500 dark:via-purple-500/50 to-transparent"
+                    />
+                    */}
                 </div>
             </div>
         </div>

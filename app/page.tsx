@@ -1,10 +1,8 @@
-// app/page.tsx (or wherever your Home component lives)
 "use client";
 
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "motion/react";
-import { useTheme } from "next-themes";
 import { Separator } from "@/components/ui/separator";
 import {
   Carousel as AppleCarousel,
@@ -41,9 +39,8 @@ type AppleCardData = {
 
 export default function Home() {
   const router = useRouter();
-  const { theme } = useTheme();
   const [timeString, setTimeString] = useState("");
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const updateClock = () => {
@@ -62,6 +59,7 @@ export default function Home() {
     return () => clearInterval(iv);
   }, []);
 
+  // Handle menu navigation for desktop/mobile navs
   const handleMenuClick = (link: string) => {
     if (link.startsWith("/")) {
       router.push(link);
@@ -69,9 +67,9 @@ export default function Home() {
       const el = document.getElementById(link.replace("#", ""));
       if (el) el.scrollIntoView({ behavior: "smooth" });
     }
-    setMobileOpen(false);
+    setIsMenuOpen(false);
   };
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+
   const navItems = [
     { name: "About", link: "/About" },
     { name: "Projects", link: "#projects" },
@@ -150,19 +148,25 @@ export default function Home() {
           <MobileNav>
             <MobileNavHeader>
               <NavbarLogo />
-              <ThemeToggle /> {/* Add theme toggle here */}
+              <ThemeToggle />
               <MobileNavToggle
                   isOpen={isMenuOpen}
-                  onClick={() => setIsMenuOpen(!isMenuOpen)}
+                  onClickAction={() => setIsMenuOpen(!isMenuOpen)}
               />
             </MobileNavHeader>
 
             <MobileNavMenu
                 isOpen={isMenuOpen}
-                onClose={() => setIsMenuOpen(false)}
+
             >
               <NavItems
-                  items={navItems}
+                  items={navItems.map((item) => ({
+                    ...item,
+                    onClick: () => {
+                      handleMenuClick(item.link);
+                      setIsMenuOpen(false);
+                    },
+                  }))}
                   className="flex flex-col gap-4 w-full"
                   onItemClick={() => setIsMenuOpen(false)}
               />
@@ -227,7 +231,6 @@ export default function Home() {
               <h2 className="text-3xl font-bold ">My Projects</h2>
               <h5>Click cards for more details</h5>
             </div>
-
             <AppleCarousel items={appleCards} />
           </section>
           <Separator />

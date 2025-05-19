@@ -51,14 +51,13 @@ export default function AboutPage() {
                         <ThemeToggle />
                         <MobileNavToggle
                             isOpen={isMenuOpen}
-                            onClick={() => setIsMenuOpen(!isMenuOpen)}
+                            onClickAction={() => setIsMenuOpen(!isMenuOpen)}
 
                         />
                     </MobileNavHeader>
 
                     <MobileNavMenu
                         isOpen={isMenuOpen}
-                        onClose={() => setIsMenuOpen(false)}
                     >
                         <NavItems
                             items={navItems}

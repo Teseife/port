@@ -98,7 +98,7 @@ export default function GalleryPage() {
         "/images/gallery/photo61.png",
     ];
 
-    // shuffle image order once per render
+    // Shuffle image order once per render
     const shuffledPaths = useMemo(() => {
         return [...imagePaths].sort(() => Math.random() - 0.5);
     }, [imagePaths]);
@@ -109,11 +109,8 @@ export default function GalleryPage() {
                 <NavBody>
                     <NavbarLogo />
                     <NavItems
-                        items={navItems.map((item) => ({
-                            name: item.name,
-                            link: item.link,
-                            onItemClick: () => handleMenuClick(item.link),
-                        }))}
+                        items={navItems}
+                        onItemClick={handleMenuClick}
                     />
                     <ThemeToggle />
                 </NavBody>
@@ -124,18 +121,14 @@ export default function GalleryPage() {
                         <ThemeToggle />
                         <MobileNavToggle
                             isOpen={mobileOpen}
-                            onClick={() => setMobileOpen((o) => !o)}
+                            onClickAction={() => setMobileOpen((o) => !o)}
                         />
                     </MobileNavHeader>
                     <MobileNavMenu
                         isOpen={mobileOpen}
-                        onClose={() => setMobileOpen(false)}
                     >
                         <NavItems
-                            items={navItems.map((item) => ({
-                                name: item.name,
-                                link: item.link,
-                            }))}
+                            items={navItems}
                             onItemClick={() => setMobileOpen(false)}
                         />
                     </MobileNavMenu>
