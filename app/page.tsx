@@ -199,7 +199,7 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="hover:opacity-75 transition-opacity"
               >
-                <Image src="/icons/github.svg" alt="GitHub" width={20} height={20} />
+                <Image src="./icons/github.svg" alt="GitHub" width={20} height={20} />
               </a>
               <a
                   href="https://linkedin.com/in/teseife"
@@ -207,7 +207,7 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="hover:opacity-75 transition-opacity"
               >
-                <Image src="/icons/linkedin.svg" alt="LinkedIn" width={20} height={20} />
+                <Image src="./icons/linkedin.svg" alt="LinkedIn" width={20} height={20} />
               </a>
               <a
                   href="/PDFs/Thomas_resume_Project.pdf"
@@ -215,7 +215,7 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="hover:opacity-75 transition-opacity"
               >
-                <Image src="/icons/resume.svg" alt="Resume" width={30} height={30} />
+                <Image src="./icons/resume.svg" alt="Resume" width={30} height={30} />
               </a>
             </div>
           </motion.div>

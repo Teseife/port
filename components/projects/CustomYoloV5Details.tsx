@@ -15,7 +15,7 @@ export function CustomYoloV5Details() {
                 </h3>
                 <div className="mt-2 flex justify-center">
                     <Image
-                        src="/images/custom-yolov5-card-images/obj-prezy.webp"
+                        src="./images/custom-yolov5-card-images/obj-prezy.webp"
                         alt="Team presenting Custom YOLOv5 on Raspberry Pi"
                         width={800}
                         height={500}
@@ -31,7 +31,7 @@ export function CustomYoloV5Details() {
                 </h3>
                 <div className="mt-2 flex justify-center">
                     <Image
-                        src="/images/custom-yolov5-card-images/obj.jpg"
+                        src="./images/custom-yolov5-card-images/obj.jpg"
                         alt="Custom YOLOv5 detection on Raspberry Pi webcam"
                         width={800}
                         height={500}
@@ -82,7 +82,7 @@ export function CustomYoloV5Details() {
                             className="inline-flex items-center space-x-2 text-gray-900 dark:text-gray-100"
                         >
                             <Image
-                                src="/icons/github.svg"
+                                src="./icons/github.svg"
                                 alt="GitHub icon"
                                 width={20}
                                 height={20}

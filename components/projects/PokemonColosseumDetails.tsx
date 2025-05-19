@@ -60,7 +60,7 @@ export function PokemonColosseumDetails() {
                             className="inline-flex items-center space-x-2 text-gray-900 dark:text-gray-100"
                         >
                             <Image
-                                src="/icons/github.svg"
+                                src="./icons/github.svg"
                                 alt="GitHub icon"
                                 width={20}
                                 height={20}

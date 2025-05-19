@@ -14,7 +14,7 @@ export function MovieRecommenderDetails() {
                     1. Video Demo
                 </h3>
                 <video
-                    src="/videos/movie-recommender/movie-recommender-preview.mp4"
+                    src="./videos/movie-recommender/movie-recommender-preview.mp4"
                     controls
                     poster="/images/movie-recommender-card-images/movie-recommender-thumbnail.png"
                     className="mt-2 w-full rounded-md shadow-lg"
@@ -51,7 +51,7 @@ export function MovieRecommenderDetails() {
                 </h3>
                 <div className="mt-2 flex justify-center">
                     <Image
-                        src="/images/movie-recommender-card-images/movie-recommender-screenshot2.png"
+                        src="./images/movie-recommender-card-images/movie-recommender-screenshot2.png"
                         alt="Algorithm Flowchart"
                         width={600}
                         height={400}

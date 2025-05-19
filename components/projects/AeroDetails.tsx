@@ -13,7 +13,7 @@ export function AeroDetails() {
                     1. Video Preview
                 </h3>
                 <video
-                    src="/videos/aero/aero-preview.mp4"
+                    src="./videos/aero/aero-preview.mp4"
                     controls
                     poster="/images/aero-card-images/aero-thumbnail.png"
                     className="mt-2 w-full rounded-md shadow-lg"
@@ -40,7 +40,7 @@ export function AeroDetails() {
                 </h3>
                 <div className="mt-2 flex justify-center">
                     <Image
-                        src="/images/aero-card-images/aero-award-team.png"
+                        src="./images/aero-card-images/aero-award-team.png"
                         alt="AeroAtlas team with Audience Choice award"
                         width={800}
                         height={500}
@@ -55,7 +55,7 @@ export function AeroDetails() {
                     4. Contributions & Process
                 </h3>
                 <Image
-                    src="/images/aero-card-images/aero-contributors-grid.png"
+                    src="./images/aero-card-images/aero-contributors-grid.png"
                     alt="AeroAtlas contributors and roles"
                     width={1000}
                     height={400}
