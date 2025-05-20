@@ -60,21 +60,22 @@ export default function Home() {
   }, []);
 
   // Handle menu navigation for desktop/mobile navs
-  const handleMenuClick = (link: string) => {
-    if (link.startsWith("/")) {
-      router.push(link);
+  const handleMenuClick = (href: string) => {
+    if (href.startsWith("/")) {
+      router.push(href);
     } else {
-      const el = document.getElementById(link.replace("#", ""));
+      const id = href.replace("#", "");
+      const el = document.getElementById(id);
       if (el) el.scrollIntoView({ behavior: "smooth" });
     }
     setIsMenuOpen(false);
   };
 
   const navItems = [
-    { name: "About", link: "./About" },
+    { name: "About", link: "/About" },
     { name: "Projects", link: "#projects" },
     { name: "Contact", link: "#footer" },
-    { name: "Gallery", link: "./Gallery" },
+    { name: "Gallery", link: "/Gallery" },
   ];
 
   const appleCardsData: AppleCardData[] = [

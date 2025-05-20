@@ -17,7 +17,7 @@ export function StockDetails() {
                 <video
                     src="./videos/stock-predictor/stock-preview.mp4"
                     controls
-                    poster="/images/stock-predictor-card-images/stock-thumbnail.png"
+                    poster="./images/stock-predictor-card-images/stock-thumbnail.png"
                     className="mt-2 w-full rounded-md shadow-lg"
                 />
             </div>
@@ -102,7 +102,7 @@ export function StockDetails() {
                 <div className="mt-2">
                     <Button variant="outline" asChild className="inline-flex items-center">
                         <a
-                            href="/PDFs/AAAI_AI_project_4_Report.pdf"
+                            href="./PDFs/AAAI_AI_project_4_Report.pdf"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="inline-flex items-center space-x-2"

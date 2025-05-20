@@ -15,7 +15,7 @@ export function AeroDetails() {
                 <video
                     src="./videos/aero/aero-preview.mp4"
                     controls
-                    poster="/images/aero-card-images/aero-thumbnail.png"
+                    poster="./images/aero-card-images/aero-thumbnail.png"
                     className="mt-2 w-full rounded-md shadow-lg"
                 />
             </div>

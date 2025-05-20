@@ -16,7 +16,7 @@ export function MovieRecommenderDetails() {
                 <video
                     src="./videos/movie-recommender/movie-recommender-preview.mp4"
                     controls
-                    poster="/images/movie-recommender-card-images/movie-recommender-thumbnail.png"
+                    poster="./images/movie-recommender-card-images/movie-recommender-thumbnail.png"
                     className="mt-2 w-full rounded-md shadow-lg"
                 />
             </div>
