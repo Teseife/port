@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/resizable-navbar";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { Footer } from "@/components/ui/Footer";
+import {router} from "next/client";
 
 export default function GalleryPage() {
     const [mobileOpen, setMobileOpen] = useState(false);
@@ -27,7 +28,7 @@ export default function GalleryPage() {
 
     const handleMenuClick = (href: string) => {
         if (href.startsWith("/")) {
-            window.location.href = href;
+            router.push(href);
         } else {
             const el = document.getElementById(href.replace("#", ""));
             if (el) el.scrollIntoView({ behavior: "smooth" });
