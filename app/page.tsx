@@ -62,7 +62,7 @@ export default function Home() {
   // Handle menu navigation for desktop/mobile navs
   const handleMenuClick = (href: string) => {
     if (href.startsWith("/")) {
-      router.push(href);
+      router.push(`.${href}`);
     } else {
       const id = href.replace("#", "");
       const el = document.getElementById(id);

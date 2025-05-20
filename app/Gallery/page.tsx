@@ -27,76 +27,85 @@ export default function GalleryPage() {
     ];
 
     const handleMenuClick = (href: string) => {
+        // Internal Next.js routes now pushed as relative paths
         if (href.startsWith("/")) {
-            router.push(href);
-        } else {
-            const el = document.getElementById(href.replace("#", ""));
-            if (el) el.scrollIntoView({ behavior: "smooth" });
+            router.push(`.${href}`);
         }
+        // Hash links (e.g. "#footer")
+        else if (href.startsWith("#")) {
+            const id = href.slice(1);
+            document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+        }
+        // External URLs
+        else {
+            window.location.href = href;
+        }
+
         setMobileOpen(false);
     };
 
     const imagePaths = [
-        "/images/gallery/photo1.png",
-        "/images/gallery/photo2.png",
-        "/images/gallery/photo3.png",
-        "/images/gallery/photo4.png",
-        "/images/gallery/photo5.png",
-        "/images/gallery/photo6.png",
-        "/images/gallery/photo7.png",
-        "/images/gallery/photo8.png",
-        "/images/gallery/photo10.png",
-        "/images/gallery/photo11.png",
-        "/images/gallery/photo12.png",
-        "/images/gallery/photo13.png",
-        "/images/gallery/photo14.png",
-        "/images/gallery/photo15.png",
-        "/images/gallery/photo16.png",
-        "/images/gallery/photo17.png",
-        "/images/gallery/photo18.png",
-        "/images/gallery/photo19.png",
-        "/images/gallery/photo20.png",
-        "/images/gallery/photo21.png",
-        "/images/gallery/photo22.png",
-        "/images/gallery/photo23.png",
-        "/images/gallery/photo24.png",
-        "/images/gallery/photo25.png",
-        "/images/gallery/photo26.png",
-        "/images/gallery/photo27.png",
-        "/images/gallery/photo28.png",
-        "/images/gallery/photo29.png",
-        "/images/gallery/photo30.png",
-        "/images/gallery/photo31.png",
-        "/images/gallery/photo32.png",
-        "/images/gallery/photo33.png",
-        "/images/gallery/photo34.png",
-        "/images/gallery/photo35.png",
-        "/images/gallery/photo36.png",
-        "/images/gallery/photo37.png",
-        "/images/gallery/photo38.png",
-        "/images/gallery/photo39.png",
-        "/images/gallery/photo40.png",
-        "/images/gallery/photo41.png",
-        "/images/gallery/photo42.png",
-        "/images/gallery/photo43.png",
-        "/images/gallery/photo44.png",
-        "/images/gallery/photo45.png",
-        "/images/gallery/photo46.png",
-        "/images/gallery/photo47.png",
-        "/images/gallery/photo48.png",
-        "/images/gallery/photo49.png",
-        "/images/gallery/photo50.png",
-        "/images/gallery/photo51.png",
-        "/images/gallery/photo52.png",
-        "/images/gallery/photo53.png",
-        "/images/gallery/photo54.png",
-        "/images/gallery/photo55.png",
-        "/images/gallery/photo56.png",
-        "/images/gallery/photo57.png",
-        "/images/gallery/photo58.png",
-        "/images/gallery/photo59.png",
-        "/images/gallery/photo60.png",
-        "/images/gallery/photo61.png",
+        "./images/gallery/photo1.png",
+        "./images/gallery/photo2.png",
+        "./images/gallery/photo3.png",
+        "./images/gallery/photo4.png",
+        "./images/gallery/photo5.png",
+        "./images/gallery/photo6.png",
+        "./images/gallery/photo7.png",
+        "./images/gallery/photo8.png",
+        "./images/gallery/photo10.png",
+        "./images/gallery/photo11.png",
+        "./images/gallery/photo12.png",
+        "./images/gallery/photo13.png",
+        "./images/gallery/photo14.png",
+        "./images/gallery/photo15.png",
+        "./images/gallery/photo16.png",
+        "./images/gallery/photo17.png",
+        "./images/gallery/photo18.png",
+        "./images/gallery/photo19.png",
+        "./images/gallery/photo20.png",
+        "./images/gallery/photo21.png",
+        "./images/gallery/photo22.png",
+        "./images/gallery/photo23.png",
+        "./images/gallery/photo24.png",
+        "./images/gallery/photo25.png",
+        "./images/gallery/photo26.png",
+        "./images/gallery/photo27.png",
+        "./images/gallery/photo28.png",
+        "./images/gallery/photo29.png",
+        "./images/gallery/photo30.png",
+        "./images/gallery/photo31.png",
+        "./images/gallery/photo32.png",
+        "./images/gallery/photo33.png",
+        "./images/gallery/photo34.png",
+        "./images/gallery/photo35.png",
+        "./images/gallery/photo36.png",
+        "./images/gallery/photo37.png",
+        "./images/gallery/photo38.png",
+        "./images/gallery/photo39.png",
+        "./images/gallery/photo40.png",
+        "./images/gallery/photo41.png",
+        "./images/gallery/photo42.png",
+        "./images/gallery/photo43.png",
+        "./images/gallery/photo44.png",
+        "./images/gallery/photo45.png",
+        "./images/gallery/photo46.png",
+        "./images/gallery/photo47.png",
+        "./images/gallery/photo48.png",
+        "./images/gallery/photo49.png",
+        "./images/gallery/photo50.png",
+        "./images/gallery/photo51.png",
+        "./images/gallery/photo52.png",
+        "./images/gallery/photo53.png",
+        "./images/gallery/photo54.png",
+        "./images/gallery/photo55.png",
+        "./images/gallery/photo56.png",
+        "./images/gallery/photo57.png",
+        "./images/gallery/photo58.png",
+        "./images/gallery/photo59.png",
+        "./images/gallery/photo60.png",
+        "./images/gallery/photo61.png",
+
     ];
 
     // Shuffle image order once per render
