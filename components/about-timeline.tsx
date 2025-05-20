@@ -14,14 +14,14 @@ export default function TimelineDemo() {
                     <div className="grid grid-cols-2 gap-4">
 
                         <img
-                            src="images/about-images/UNF_horizontal_blue.png"
+                            src="./images/about-images/UNF_horizontal_blue.png"
                             alt="UNF logo"
                             className="w-auto h-18 filter brightness-0 invert "
 
                         />
 
                         <img
-                            src="images/about-images/fscj-logo-hor-white.png"
+                            src="./images/about-images/fscj-logo-hor-white.png"
                             alt="startup template"
                             className="w-auto h-12 filter brightness-0 invert "
                         />
@@ -38,7 +38,7 @@ export default function TimelineDemo() {
                         When I am not working on school or personal projects I usually go to the gym or play pickle ball ( Not that good yet! LOL).
                         I also love to bake and I&apos;m  also a passionate car enthusiast! I take some amateur photos of random events around me from time-to-time as well. You can check out my small gallery
                         <Button asChild variant="ghost" size="sm">
-                        <a href= "/Gallery"
+                        <a href= "./Gallery"
                            className=" text-blue-400"
                            rel="noopener noreferrer"
                         > here
