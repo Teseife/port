@@ -21,7 +21,7 @@ export default function GalleryPage() {
     const [mobileOpen, setMobileOpen] = useState(false);
 
     const navItems = [
-        { name: "Home", link: "https://teseife.github.io/port" },
+        { name: "Home", link: "https://teseife.github.io/port/" },
         { name: "About", link: "https://teseife.github.io/port/About" },
         { name: "Contact", link: "#footer" },
     ];
