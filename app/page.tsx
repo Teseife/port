@@ -63,10 +63,9 @@ export default function Home() {
   const handleMenuClick = (href: string) => {
     if (href.startsWith("/")) {
       router.push(`.${href}`);
-    } else {
-      const id = href.replace("#", "");
-      const el = document.getElementById(id);
-      if (el) el.scrollIntoView({ behavior: "smooth" });
+    }else if (href.startsWith("#")) {
+      const id = href.slice(1);
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
     }
     setIsMenuOpen(false);
   };
