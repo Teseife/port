@@ -1,3 +1,4 @@
+// app/page.tsx
 "use client";
 
 import React, { useEffect, useState } from "react";
@@ -29,7 +30,6 @@ import { MovieRecommenderDetails } from "@/components/projects/MovieRecommenderD
 import { CustomYoloV5Details } from "@/components/projects/CustomYoloV5Details";
 import Image from "next/image";
 
-
 type AppleCardData = {
   src: string;
   title: string;
@@ -59,29 +59,26 @@ export default function Home() {
     const iv = setInterval(updateClock, 1000);
     return () => clearInterval(iv);
   }, []);
+
+  // Routing logic: prefix "." for relative internal routes
   const handleMenuClick = (href: string) => {
-    // Internal Next.js routes now pushed as relative paths
     if (href.startsWith("/")) {
       router.push(`.${href}`);
-    }
-    // Hash links (e.g. "#footer")
-    else if (href.startsWith("#")) {
+    } else if (href.startsWith("#")) {
       const id = href.slice(1);
       document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-    }
-    // External URLs
-    else {
+    } else {
       window.location.href = href;
     }
-
     setMobileOpen(false);
   };
 
+  // Follow your pages listing pattern exactly
   const navItems = [
-    { name: "About", link: "https://teseife.github.io/port/About" },
+    { name: "About",    link: "/About"   },
     { name: "Projects", link: "#projects" },
-    { name: "Contact", link: "#footer" },
-    { name: "Gallery", link: "https://teseife.github.io/port/Gallery" },
+    { name: "Contact",  link: "#footer"   },
+    { name: "Gallery",  link: "/Gallery"  },
   ];
 
   const appleCardsData: AppleCardData[] = [
@@ -162,10 +159,7 @@ export default function Home() {
               />
             </MobileNavHeader>
 
-            <MobileNavMenu
-                isOpen={mobileOpen}
-
-            >
+            <MobileNavMenu isOpen={mobileOpen}>
               <NavItems
                   items={navItems.map((item) => ({
                     ...item,
@@ -191,8 +185,7 @@ export default function Home() {
           >
             <div className="absolute top-16 w-full px-4 text-white">
               <p className="text-xs md:text-base">
-                Full-Stack Dev • Jacksonville,{" "}
-                <strong>{timeString} EST</strong>{" "}
+                Full-Stack Dev • Jacksonville, <strong>{timeString} EST</strong>{" "}
                 <span className="mx-2">|</span> Open to work & relocation
               </p>
               <hr className="my-2 border-white/50" />
