@@ -75,10 +75,10 @@ export default function Home() {
 
   // Follow your pages listing pattern exactly
   const navItems = [
-    { name: "About",    link: "/About"   },
+    { name: "About",    link: "https://teseife.github.io/port/About"   },
     { name: "Projects", link: "#projects" },
     { name: "Contact",  link: "#footer"   },
-    { name: "Gallery",  link: "/Gallery"  },
+    { name:"Gallery", link: "https://teseife.github.io/port/Gallery" },
   ];
 
   const appleCardsData: AppleCardData[] = [
