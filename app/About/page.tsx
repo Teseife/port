@@ -1,7 +1,7 @@
 // app/about/page.tsx
 "use client";
 
-import React from "react";
+import React, {useState} from "react";
 import { useTheme } from "next-themes";
 import TimelineDemo from "@/components/about-timeline";
 import {
@@ -16,9 +16,11 @@ import {
 } from "@/components/ui/resizable-navbar";
 import { Footer } from "@/components/ui/Footer";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
+import {router} from "next/client";
 
 export default function AboutPage() {
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+    const [mobileOpen, setMobileOpen] = useState(false);
     const { theme } = useTheme();
 
     const navItems = [
@@ -27,7 +29,23 @@ export default function AboutPage() {
         { name: "Contact", link: "#footer"},
         { name:"Gallery", link: "https://teseife.github.io/port/Gallery" },
     ];
+    const handleMenuClick = (href: string) => {
+        // Internal Next.js routes now pushed as relative paths
+        if (href.startsWith("/")) {
+            router.push(`.${href}`);
+        }
+        // Hash links (e.g. "#footer")
+        else if (href.startsWith("#")) {
+            const id = href.slice(1);
+            document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+        }
+        // External URLs
+        else {
+            window.location.href = href;
+        }
 
+        setMobileOpen(false);
+    };
     // Dynamic text color based on theme
     const textColorClass = theme === 'light' ? 'text-black' : 'text-white';
 
@@ -40,6 +58,7 @@ export default function AboutPage() {
                     <NavItems
                         items={navItems}
                         className={textColorClass}
+                        onItemClick={handleMenuClick}
                     />
                     <ThemeToggle />
                 </NavBody>
@@ -51,7 +70,8 @@ export default function AboutPage() {
                         <ThemeToggle />
                         <MobileNavToggle
                             isOpen={isMenuOpen}
-                            onClickAction={() => setIsMenuOpen(!isMenuOpen)}
+                            onClickAction={() => setMobileOpen((o) => !o)}
+
 
                         />
                     </MobileNavHeader>
@@ -62,7 +82,7 @@ export default function AboutPage() {
                         <NavItems
                             items={navItems}
                             className={`flex flex-col gap-4 w-full ${textColorClass}`}
-                            onItemClick={() => setIsMenuOpen(false)}
+                            onItemClick={() => setMobileOpen(false)}
                         />
                     </MobileNavMenu>
                 </MobileNav>
