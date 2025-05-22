@@ -86,42 +86,42 @@ export default function Home() {
       category: "AeroAtlas",
       title:    "Dynamic Travel Itineraries",
       date:     "May 2025",
-      src:      "/images/aero-card-images/aero-card.png",
+      src:      "./images/aero-card-images/aero-card.png",
       content:  <AeroDetails />,
     },
     {
       category: "StockSeer",
       title:    "ML Stock Forecast",
       date:     "April 2025",
-      src:      "/images/stock-predictor-card-images/stock-predictor-card.png",
+      src:      "./images/stock-predictor-card-images/stock-predictor-card.png",
       content:  <StockDetails />,
     },
     {
       category: "Movie Recommender",
       title:    "Algorithmic Film Picker",
       date:     "March 2025",
-      src:      "/images/movie-recommender-card-images/movie-recommender-card.png",
+      src:      "./images/movie-recommender-card-images/movie-recommender-card.png",
       content:  <MovieRecommenderDetails />,
     },
     {
       category: "Custom YOLOv5",
       title:    "Edge Object Detection",
       date:     "February 2025",
-      src:      "/images/custom-yolov5-card-images/custom-yolov5-card.png",
+      src:      "./images/custom-yolov5-card-images/custom-yolov5-card.png",
       content:  <CustomYoloV5Details />,
     },
     {
       category: "Path Finder",
       title:    "Grid World Route Planner",
       date:     "January 2025",
-      src:      "/images/path-finder-card-images/path-finder-card.png",
+      src:      "./images/path-finder-card-images/path-finder-card.png",
       content:  <PathFinderDetails />,
     },
     {
       category: "Pokémon Colosseum",
       title:    "Turn-Based Battle Simulator",
       date:     "December 2024",
-      src:      "/images/pokemon-colosseum-card-images/pokemon-colosseum-card.png",
+      src:      "./images/pokemon-colosseum-card-images/pokemon-colosseum-card.png",
       content:  <PokemonColosseumDetails />,
     },
   ];
@@ -191,7 +191,7 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="hover:opacity-75 transition-opacity"
               >
-                <Image src="/icons/github.svg" alt="GitHub" width={20} height={20} />
+                <Image src="./icons/github.svg" alt="GitHub" width={20} height={20} />
               </a>
               <a
                   href="https://linkedin.com/in/teseife"
@@ -199,15 +199,15 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="hover:opacity-75 transition-opacity"
               >
-                <Image src="/icons/linkedin.svg" alt="LinkedIn" width={20} height={20} />
+                <Image src="./icons/linkedin.svg" alt="LinkedIn" width={20} height={20} />
               </a>
               <a
-                  href="/PDFs/Thomas_resume_Project.pdf"
+                  href="./PDFs/Thomas_resume_Project.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:opacity-75 transition-opacity"
               >
-                <Image src="/icons/resume.svg" alt="Resume" width={30} height={30} />
+                <Image src="//icons/resume.svg" alt="Resume" width={30} height={30} />
               </a>
             </div>
           </motion.div>
