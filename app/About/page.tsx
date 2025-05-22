@@ -22,10 +22,10 @@ export default function AboutPage() {
     const { theme } = useTheme();
 
     const navItems = [
-        { name: "Home", link: "/" },
-        { name: "About", link: "/About" },
-        { name: "Contact", link: "#footer" },
-        { name:"Gallery", link: "/Gallery" },
+        { name: "Home", link: "https://teseife.github.io/port" },
+        { name: "About", link: "https://teseife.github.io/port/About" },
+        { name: "Contact", link: "#footer"},
+        { name:"Gallery", link: "https://teseife.github.io/port/Gallery" },
     ];
 
     // Dynamic text color based on theme
