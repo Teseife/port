@@ -22,9 +22,9 @@ export function ThemeToggle() {
             className="p-2 rounded-full bg-white/20 dark:bg-white/20 hover:bg-white/30 dark:hover:bg-black/30 transition"
         >
             {theme === "light" ? (
-                <LucideSun className="h-5 w-5 text-yellow-400" />
+                <LucideSun className="h-5 w-5 text-yellow-500" />
             ) : (
-                <LucideMoon className="h-5 w-5 text-white" />
+                <LucideMoon className="h-5 w-5 text-violet-800" />
             )}
         </button>
     );

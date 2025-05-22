@@ -1,3 +1,4 @@
+// components/ui/timeline.tsx
 "use client"
 // import { useScroll } from "motion/react"
 import type React from "react"
@@ -27,11 +28,13 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
     })*/
 
     return (
-        <div className="w-full  dark:bg-neutral-950 font-sans md:px-10" ref={containerRef}>
+        <div
+            className="w-full bg-white dark:bg-neutral-950 font-sans md:px-10"
+            ref={containerRef}
+        >
             <div className="max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10">
                 <div className="flex items-center gap-6 mb-8">
                     {/* Circular Profile Picture */}
-
                     <div>
                         <h2 className="text-lg md:text-4xl mb-2 text-neutral-900 dark:text-white max-w-4xl">
                             Changelog from my journey
@@ -76,9 +79,16 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
                         </div>
                     </div>
                 ))}
+
                 <div
                     style={{ height: height + "px" }}
-                    className="absolute md:left-8 left-8 top-0 overflow-hidden w-[2px] bg-gradient-to-b from-transparent via-neutral-200 dark:via-neutral-700 to-transparent"
+                    className="
+                        absolute md:left-8 left-8 top-0 w-[2px]
+                        bg-gradient-to-b
+                        from-transparent via-neutral-200 to-transparent
+                        dark:from-transparent dark:via-neutral-700 dark:to-transparent
+                        overflow-hidden
+                    "
                 >
                     {/* Uncomment if you want to animate the timeline line in the future:
                     <motion.div

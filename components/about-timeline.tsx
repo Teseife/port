@@ -1,5 +1,9 @@
-import { Timeline } from "@/components/ui/timeline"
-import {Button} from "@/components/ui/button";
+"use client";
+
+import * as React from "react";
+import { Timeline } from "@/components/ui/timeline";
+import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 
 
 export default function TimelineDemo() {
@@ -172,7 +176,12 @@ export default function TimelineDemo() {
     ]
     return (
         <div className="relative w-full overflow-clip">
+            {/* Theme toggle */}
+            <div className="absolute top-4 right-4 z-10">
+                <ThemeToggle />
+            </div>
+
             <Timeline data={data} />
         </div>
-    )
+    );
 }

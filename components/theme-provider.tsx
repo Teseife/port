@@ -25,6 +25,7 @@ export function ThemeProvider({
             attribute="class"       // use class strategy
             defaultTheme="light"    // or "dark", whichever you prefer as initial
             enableSystem={false}    // ← disable system-based theming
+            storageKey="theme"
         >
             {children}
         </NextThemesProvider>
