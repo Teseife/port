@@ -207,7 +207,7 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="hover:opacity-75 transition-opacity"
               >
-                <Image src="//icons/resume.svg" alt="Resume" width={30} height={30} />
+                <Image src="./icons/resume.svg" alt="Resume" width={30} height={30} />
               </a>
             </div>
           </motion.div>
