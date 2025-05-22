@@ -22,7 +22,7 @@ export default function GalleryPage() {
 
     const navItems = [
         { name: "Home", link: "/" },
-        { name: "About", link: "/About" },
+        { name: "About", link: "https://teseife.github.io/port/About" },
         { name: "Contact", link: "#footer" },
     ];
 
