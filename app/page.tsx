@@ -29,6 +29,7 @@ import { MovieRecommenderDetails } from "@/components/projects/MovieRecommenderD
 import { CustomYoloV5Details } from "@/components/projects/CustomYoloV5Details";
 import Image from "next/image";
 
+
 type AppleCardData = {
   src: string;
   title: string;
@@ -40,7 +41,7 @@ type AppleCardData = {
 export default function Home() {
   const router = useRouter();
   const [timeString, setTimeString] = useState("");
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
     const updateClock = () => {
@@ -58,16 +59,22 @@ export default function Home() {
     const iv = setInterval(updateClock, 1000);
     return () => clearInterval(iv);
   }, []);
-
-  // Handle menu navigation for desktop/mobile navs
   const handleMenuClick = (href: string) => {
+    // Internal Next.js routes now pushed as relative paths
     if (href.startsWith("/")) {
       router.push(`.${href}`);
-    }else if (href.startsWith("#")) {
+    }
+    // Hash links (e.g. "#footer")
+    else if (href.startsWith("#")) {
       const id = href.slice(1);
       document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
     }
-    setIsMenuOpen(false);
+    // External URLs
+    else {
+      window.location.href = href;
+    }
+
+    setMobileOpen(false);
   };
 
   const navItems = [
@@ -150,13 +157,13 @@ export default function Home() {
               <NavbarLogo />
               <ThemeToggle />
               <MobileNavToggle
-                  isOpen={isMenuOpen}
-                  onClickAction={() => setIsMenuOpen(!isMenuOpen)}
+                  isOpen={mobileOpen}
+                  onClickAction={() => setMobileOpen((o) => !o)}
               />
             </MobileNavHeader>
 
             <MobileNavMenu
-                isOpen={isMenuOpen}
+                isOpen={mobileOpen}
 
             >
               <NavItems
@@ -164,11 +171,11 @@ export default function Home() {
                     ...item,
                     onClick: () => {
                       handleMenuClick(item.link);
-                      setIsMenuOpen(false);
+                      setMobileOpen(false);
                     },
                   }))}
                   className="flex flex-col gap-4 w-full"
-                  onItemClick={() => setIsMenuOpen(false)}
+                  onItemClick={() => setMobileOpen(false)}
               />
             </MobileNavMenu>
           </MobileNav>
