@@ -60,10 +60,10 @@ export default function Home() {
     return () => clearInterval(iv);
   }, []);
 
-  // Routing logic: prefix "." for relative internal routes
+  // Routing logic: same pattern as About and Gallery pages
   const handleMenuClick = (href: string) => {
     if (href.startsWith("/")) {
-      router.push(`.${href}`);
+      router.push(href);
     } else if (href.startsWith("#")) {
       const id = href.slice(1);
       document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
@@ -73,56 +73,56 @@ export default function Home() {
     setMobileOpen(false);
   };
 
-  // Follow your pages listing pattern exactly
+  // Nav items matching your About and Gallery pattern
   const navItems = [
-    { name: "About",    link: "https://teseife.github.io/port/About"   },
+    { name: "About",    link: "/About"    },
     { name: "Projects", link: "#projects" },
     { name: "Contact",  link: "#footer"   },
-    { name:"Gallery", link: "https://teseife.github.io/port/Gallery" },
+    { name: "Gallery",  link: "/Gallery"  },
   ];
 
   const appleCardsData: AppleCardData[] = [
     {
       category: "AeroAtlas",
-      title: "Dynamic Travel Itineraries",
-      date: "May 2025",
-      src: "./images/aero-card-images/aero-card.png",
-      content: <AeroDetails />,
+      title:    "Dynamic Travel Itineraries",
+      date:     "May 2025",
+      src:      "/images/aero-card-images/aero-card.png",
+      content:  <AeroDetails />,
     },
     {
       category: "StockSeer",
-      title: "ML Stock Forecast",
-      date: "April 2025",
-      src: "./images/stock-predictor-card-images/stock-predictor-card.png",
-      content: <StockDetails />,
+      title:    "ML Stock Forecast",
+      date:     "April 2025",
+      src:      "/images/stock-predictor-card-images/stock-predictor-card.png",
+      content:  <StockDetails />,
     },
     {
       category: "Movie Recommender",
-      title: "Algorithmic Film Picker",
-      date: "March 2025",
-      src: "./images/movie-recommender-card-images/movie-recommender-card.png",
-      content: <MovieRecommenderDetails />,
+      title:    "Algorithmic Film Picker",
+      date:     "March 2025",
+      src:      "/images/movie-recommender-card-images/movie-recommender-card.png",
+      content:  <MovieRecommenderDetails />,
     },
     {
       category: "Custom YOLOv5",
-      title: "Edge Object Detection",
-      date: "February 2025",
-      src: "./images/custom-yolov5-card-images/custom-yolov5-card.png",
-      content: <CustomYoloV5Details />,
+      title:    "Edge Object Detection",
+      date:     "February 2025",
+      src:      "/images/custom-yolov5-card-images/custom-yolov5-card.png",
+      content:  <CustomYoloV5Details />,
     },
     {
       category: "Path Finder",
-      title: "Grid World Route Planner",
-      date: "January 2025",
-      src: "./images/path-finder-card-images/path-finder-card.png",
-      content: <PathFinderDetails />,
+      title:    "Grid World Route Planner",
+      date:     "January 2025",
+      src:      "/images/path-finder-card-images/path-finder-card.png",
+      content:  <PathFinderDetails />,
     },
     {
       category: "Pokémon Colosseum",
-      title: "Turn-Based Battle Simulator",
-      date: "December 2024",
-      src: "./images/pokemon-colosseum-card-images/pokemon-colosseum-card.png",
-      content: <PokemonColosseumDetails />,
+      title:    "Turn-Based Battle Simulator",
+      date:     "December 2024",
+      src:      "/images/pokemon-colosseum-card-images/pokemon-colosseum-card.png",
+      content:  <PokemonColosseumDetails />,
     },
   ];
 
@@ -139,13 +139,7 @@ export default function Home() {
         <ResizableNavbar className="fixed inset-x-0 top-0 z-40">
           <NavBody>
             <NavbarLogo />
-            <NavItems
-                items={navItems.map((item) => ({
-                  name: item.name,
-                  link: item.link,
-                  onClick: () => handleMenuClick(item.link),
-                }))}
-            />
+            <NavItems items={navItems} onItemClick={handleMenuClick} />
             <ThemeToggle />
           </NavBody>
 
@@ -161,15 +155,9 @@ export default function Home() {
 
             <MobileNavMenu isOpen={mobileOpen}>
               <NavItems
-                  items={navItems.map((item) => ({
-                    ...item,
-                    onClick: () => {
-                      handleMenuClick(item.link);
-                      setMobileOpen(false);
-                    },
-                  }))}
+                  items={navItems}
+                  onItemClick={handleMenuClick}
                   className="flex flex-col gap-4 w-full"
-                  onItemClick={() => setMobileOpen(false)}
               />
             </MobileNavMenu>
           </MobileNav>
@@ -203,7 +191,7 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="hover:opacity-75 transition-opacity"
               >
-                <Image src="./icons/github.svg" alt="GitHub" width={20} height={20} />
+                <Image src="/icons/github.svg" alt="GitHub" width={20} height={20} />
               </a>
               <a
                   href="https://linkedin.com/in/teseife"
@@ -211,15 +199,15 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="hover:opacity-75 transition-opacity"
               >
-                <Image src="./icons/linkedin.svg" alt="LinkedIn" width={20} height={20} />
+                <Image src="/icons/linkedin.svg" alt="LinkedIn" width={20} height={20} />
               </a>
               <a
-                  href="./PDFs/Thomas_resume_Project.pdf"
+                  href="/PDFs/Thomas_resume_Project.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:opacity-75 transition-opacity"
               >
-                <Image src="./icons/resume.svg" alt="Resume" width={30} height={30} />
+                <Image src="/icons/resume.svg" alt="Resume" width={30} height={30} />
               </a>
             </div>
           </motion.div>
@@ -228,14 +216,13 @@ export default function Home() {
         <main className="flex-1 container mx-auto px-4 py-8 space-y-20">
           <section id="projects" className="space-y-4">
             <div className="pl-32">
-              <h2 className="text-3xl font-bold ">My Projects</h2>
+              <h2 className="text-3xl font-bold">My Projects</h2>
               <h5>Click cards for more details</h5>
             </div>
             <AppleCarousel items={appleCards} />
           </section>
           <Separator />
         </main>
-
         <Footer />
       </div>
   );
