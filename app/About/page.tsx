@@ -19,7 +19,6 @@ import { ThemeToggle } from "@/components/ui/theme-toggle";
 import {router} from "next/client";
 
 export default function AboutPage() {
-    const [isMenuOpen, setIsMenuOpen] = React.useState(false);
     const [mobileOpen, setMobileOpen] = useState(false);
     const { theme } = useTheme();
 
@@ -29,7 +28,8 @@ export default function AboutPage() {
         { name: "Contact", link: "#footer"},
         { name:"Gallery", link: "https://teseife.github.io/port/Gallery" },
     ];
-    const handleMenuClick = (href: string) => {
+
+const handleMenuClick = (href: string) => {
         // Internal Next.js routes now pushed as relative paths
         if (href.startsWith("/")) {
             router.push(`.${href}`);
@@ -45,7 +45,7 @@ export default function AboutPage() {
         }
 
         setMobileOpen(false);
-    };
+};
     // Dynamic text color based on theme
     const textColorClass = theme === 'light' ? 'text-black' : 'text-white';
 
@@ -69,7 +69,7 @@ export default function AboutPage() {
                         <NavbarLogo  />
                         <ThemeToggle />
                         <MobileNavToggle
-                            isOpen={isMenuOpen}
+                            isOpen={mobileOpen}
                             onClickAction={() => setMobileOpen((o) => !o)}
 
 
@@ -77,7 +77,7 @@ export default function AboutPage() {
                     </MobileNavHeader>
 
                     <MobileNavMenu
-                        isOpen={isMenuOpen}
+                        isOpen={mobileOpen}
                     >
                         <NavItems
                             items={navItems}
