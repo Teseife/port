@@ -175,12 +175,7 @@ export default function TimelineDemo() {
         // },
     ]
     return (
-        <div className="relative w-full overflow-clip">
-            {/* Theme toggle */}
-            <div className="absolute top-4 right-4 z-10">
-                <ThemeToggle />
-            </div>
-
+        <div className="relative w-full overflow-clip bg-white dark:bg-neutral-900">
             <Timeline data={data} />
         </div>
     );

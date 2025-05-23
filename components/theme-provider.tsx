@@ -23,7 +23,7 @@ export function ThemeProvider({
         <NextThemesProvider
             {...props}
             attribute="class"       // use class strategy
-            defaultTheme="light"    // or "dark", whichever you prefer as initial
+            defaultTheme="dark"    // or "dark", whichever you prefer as initial
             enableSystem={false}    // ← disable system-based theming
             storageKey="theme"
         >
