@@ -19,14 +19,14 @@ export default function TimelineDemo() {
                         <img
                             src="./images/about-images/UNF_horizontal_blue.png"
                             alt="UNF logo"
-                            className="w-auto h-18 filter brightness-0 invert "
+                            className="w-auto h-18 filter"
 
                         />
 
                         <img
                             src="./images/about-images/fscj-logo-hor-white.png"
-                            alt="startup template"
-                            className="w-auto h-12 filter brightness-0 invert "
+                            alt="FSCJ logo"
+                            className="w-auto h-12 filter"
                         />
 
                     </div>
