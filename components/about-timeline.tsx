@@ -3,7 +3,6 @@
 import * as React from "react";
 import { Timeline } from "@/components/ui/timeline";
 import { Button } from "@/components/ui/button";
-import { ThemeToggle } from "@/components/ui/theme-toggle";
 
 
 export default function TimelineDemo() {
