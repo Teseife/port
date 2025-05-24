@@ -15,32 +15,28 @@ import {
 } from "@/components/ui/resizable-navbar";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { Footer } from "@/components/ui/Footer";
-import {router} from "next/client";
+import { useRouter } from "next/navigation";
 
 export default function GalleryPage() {
     const [mobileOpen, setMobileOpen] = useState(false);
+    const router = useRouter();
 
     const navItems = [
         { name: "Home", link: "https://teseife.github.io/port/" },
         { name: "About", link: "https://teseife.github.io/port/About" },
         { name: "Contact", link: "#footer" },
+        { name: "Gallery", link: "https://teseife.github.io/port/Gallery" },
     ];
 
     const handleMenuClick = (href: string) => {
-        // Internal Next.js routes now pushed as relative paths
         if (href.startsWith("/")) {
             router.push(`.${href}`);
-        }
-        // Hash links (e.g. "#footer")
-        else if (href.startsWith("#")) {
+        } else if (href.startsWith("#")) {
             const id = href.slice(1);
             document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-        }
-        // External URLs
-        else {
+        } else {
             window.location.href = href;
         }
-
         setMobileOpen(false);
     };
 
@@ -108,7 +104,6 @@ export default function GalleryPage() {
 
     ];
 
-    // Shuffle image order once per render
     const shuffledPaths = useMemo(() => {
         return [...imagePaths].sort(() => Math.random() - 0.5);
     }, [imagePaths]);
@@ -134,17 +129,17 @@ export default function GalleryPage() {
                             onClickAction={() => setMobileOpen((o) => !o)}
                         />
                     </MobileNavHeader>
-                    <MobileNavMenu
-                        isOpen={mobileOpen}
-                    >
+                    <MobileNavMenu isOpen={mobileOpen}>
                         <NavItems
                             items={navItems}
-                            onItemClick={() => setMobileOpen(false)}
+                            onItemClick={handleMenuClick}
+                            className="flex flex-col gap-4 w-full"
                         />
                     </MobileNavMenu>
                 </MobileNav>
             </ResizableNavbar>
 
+            {/* Keep your existing gallery content */}
             <main className="flex-1 pt-20 container mx-auto px-4 py-8">
                 <h1 className="text-3xl font-bold mb-6">Photo Gallery</h1>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
