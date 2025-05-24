@@ -65,7 +65,7 @@ export function PokemonColosseumDetails() {
                                 width={20}
                                 height={20}
                             />
-                            <span>View on GitHub</span>
+                            <span className="text-orange-300">View on GitHub</span>
                         </a>
                     </Button>
                 </div>

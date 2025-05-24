@@ -113,7 +113,7 @@ export function StockDetails() {
                                 width={20}
                                 height={20}
                             />
-                            <span className="text-gray-900 dark:text-gray-100">
+                            <span className="text-orange-300">
                 View Full Report
               </span>
                         </a>
