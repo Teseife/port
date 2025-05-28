@@ -25,7 +25,7 @@ export function Footer() {
                 <a href="mailto:teseife0@gmail.com">Contact Me</a>
               </Button>
               <Button variant="outline" asChild size="sm">
-                <a href="/PDFs/Thomas_resume_Project.pdf" target="_blank" rel="noopener noreferrer">
+                <a href="./PDFs/Thomas_resume_Project.pdf" target="_blank" rel="noopener noreferrer">
                   View Resume
                 </a>
               </Button>
